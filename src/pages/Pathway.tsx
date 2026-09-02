@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ChevronLeft, AlertTriangle, Info } from 'lucide-react';
+import { ChevronLeft, AlertTriangle, Info, ArrowRight } from 'lucide-react';
 import BottomNav from '../components/BottomNav';
 import { useApp } from '../context/AppContext';
 import { resolutionOptions } from '../data/mockData';
@@ -33,21 +33,17 @@ export default function Pathway() {
           {/* EMI comparison card */}
           <div className="card mb-4">
             <h2 className="text-base font-bold text-text-primary mb-3">EMI comparison</h2>
-            <div className="flex gap-4">
-              <div className="flex-1 bg-bg rounded-xl p-3">
+            <div className="flex items-center gap-2">
+              <div className="flex-1 min-w-0 bg-bg rounded-xl p-3">
                 <div className="text-xs text-text-secondary mb-1">Current EMI</div>
-                <div className="text-lg font-bold text-text-primary">{option.currentEMI}</div>
+                <div className="text-sm font-bold text-text-primary leading-snug break-words">{option.currentEMI}</div>
               </div>
-              <div className="flex items-center">
-                <div className="w-8 h-px bg-border-light relative">
-                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-l-8 border-transparent border-l-accent" />
-                </div>
-              </div>
-              <div className="flex-1 bg-accent-light rounded-xl p-3">
+              <ArrowRight size={16} className="text-accent flex-shrink-0" />
+              <div className="flex-1 min-w-0 bg-accent-light rounded-xl p-3">
                 <div className="text-xs text-accent mb-1">
                   {option.id === 'restructure' ? 'Potential EMI' : 'Outcome'}
                 </div>
-                <div className="text-base font-bold text-accent">{option.potentialEMI}</div>
+                <div className="text-sm font-bold text-accent leading-snug break-words">{option.potentialEMI}</div>
               </div>
             </div>
 
