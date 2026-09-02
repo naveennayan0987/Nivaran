@@ -28,12 +28,12 @@ export default function ScoreGauge({
 
   const toXY = (deg: number) => ({
     x: cx + r * Math.cos((deg * Math.PI) / 180),
-    y: cy + r * Math.sin((deg * Math.PI) / 180),
+    y: cy - r * Math.sin((deg * Math.PI) / 180),
   });
 
   const startA = 180;   // left end
   const endA   = 0;     // right end
-  // Progress sweeps from left (180°) toward right (0°)
+  // Progress sweeps from left (180°) toward right (0°) across the top arch
   const progA  = startA - pct * 180;
 
   const s   = toXY(startA);
@@ -41,8 +41,8 @@ export default function ScoreGauge({
   const pe  = toXY(progA);
   const dot = toXY(progA);
 
-  const bgPath   = `M ${s.x} ${s.y} A ${r} ${r} 0 0 1 ${e.x} ${e.y}`;
-  const progPath = `M ${s.x} ${s.y} A ${r} ${r} 0 0 1 ${pe.x} ${pe.y}`;
+  const bgPath   = `M ${s.x.toFixed(2)} ${s.y.toFixed(2)} A ${r} ${r} 0 0 1 ${e.x.toFixed(2)} ${e.y.toFixed(2)}`;
+  const progPath = `M ${s.x.toFixed(2)} ${s.y.toFixed(2)} A ${r} ${r} 0 0 1 ${pe.x.toFixed(2)} ${pe.y.toFixed(2)}`;
 
   // Sizes
   const dims =
