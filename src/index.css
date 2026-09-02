@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+
+  html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #DEDBD6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  #root {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100dvh;
+    background-color: #DEDBD6;
+  }
+}
+
+@layer components {
+  /* ─── Mobile App Shell ─── */
+  .app-shell {
+    width: 100%;
+    max-width: 390px;
+    min-height: 100dvh;
+    background-color: #F5F2EE;
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Scrollable page content (BottomNav is sticky in the shell) */
+  .page-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Page content without bottom nav (onboarding) */
+  .page-content-full {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* ─── Buttons ─── */
+  .btn-primary {
+    @apply w-full bg-accent text-white font-semibold py-4 px-6 rounded-2xl text-base;
+    @apply active:opacity-90 transition-opacity cursor-pointer;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-secondary {
+    @apply w-full border-2 border-accent text-accent font-semibold py-4 px-6 rounded-2xl text-base;
+    @apply active:opacity-80 transition-opacity cursor-pointer;
+  }
+
+  /* ─── Cards ─── */
+  .card {
+    @apply bg-white rounded-2xl border border-border-card p-5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  }
+
+  /* ─── Status Badges ─── */
+  .badge-overdue {
+    @apply text-xs font-semibold px-3 py-1 rounded-full bg-overdue-bg text-overdue whitespace-nowrap;
+  }
+  .badge-on-track {
+    @apply text-xs font-semibold px-3 py-1 rounded-full bg-on-track-bg text-on-track whitespace-nowrap;
+  }
+  .badge-due-soon {
+    @apply text-xs font-semibold px-3 py-1 rounded-full bg-due-soon-bg text-due-soon whitespace-nowrap;
+  }
+
+  /* ─── Metric Cards ─── */
+  .metric-card {
+    @apply bg-white rounded-2xl border border-border-card p-3 flex-1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    min-width: 0;
+  }
+
+  /* ─── OTP Inputs ─── */
+  .otp-input {
+    @apply text-center text-xl font-bold border-2 rounded-2xl bg-white focus:outline-none transition-colors;
+    border-color: #E8E4DF;
+    width: 46px;
+    height: 54px;
+    flex-shrink: 0;
+  }
+  .otp-input:focus {
+    border-color: #2D6A4F;
+    background-color: #F0FAF5;
+  }
+  .otp-input.filled {
+    background-color: #D8EFE3;
+    border-color: #2D6A4F;
+  }
+}
+
+/* ─── Score Gauge ─── */
+.gauge-svg {
+  overflow: visible;
+}
+
+/* ─── Scrollbar Hide ─── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─── Page transition ─── */
+.page-content, .page-content-full {
+  overscroll-behavior: contain;
+}
