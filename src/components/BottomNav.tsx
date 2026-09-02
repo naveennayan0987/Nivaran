@@ -20,7 +20,7 @@ export default function BottomNav() {
 
   return (
     <nav
-      className="sticky bottom-0 w-full bg-white z-50 flex-shrink-0"
+      className="w-full bg-white z-50 flex-shrink-0"
       style={{
         borderTop:  '1px solid #EDEBE7',
         boxShadow:  '0 -2px 8px rgba(0,0,0,0.06)',
